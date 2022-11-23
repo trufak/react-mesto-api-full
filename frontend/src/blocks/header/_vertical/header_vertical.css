@@ -1,0 +1,9 @@
+@media screen and (max-width: 425px){
+  .header_vertical {
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: max-content max-content;
+    grid-template-areas:
+    "login login login"
+    "logo empty menu-login";
+  }
+}

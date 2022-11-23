@@ -1,0 +1,14 @@
+.form__input_sign {
+  border-bottom: 2px solid #CCCCCC;
+  color: #FFFF;
+  font-weight: 500;
+}
+
+.form__input_sign::placeholder {
+  font-weight: 400;
+  color: #CCCCCC;
+}
+
+.form__input_sign:focus {
+  outline: 0;
+}

@@ -1,0 +1,29 @@
+.profile__edit-avatar-button {
+  grid-area: avatar;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  background-size: cover;
+}
+
+.profile__edit-avatar-button:hover::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../../../images/Vector.svg);
+  background-repeat: no-repeat;
+  background-position:center;
+  background-color: rgba(0, 0, 0, 0.8);
+  content: "";
+}

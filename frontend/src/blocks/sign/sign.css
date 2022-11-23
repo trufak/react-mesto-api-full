@@ -1,0 +1,11 @@
+.sign {
+  width: 358px;
+  margin: 40px auto 0;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 425px){
+  .sign {
+    width: 260px;
+  }
+}

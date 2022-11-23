@@ -1,0 +1,12 @@
+.close-button_popup {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+@media screen and (max-width: 568px){
+  .close-button_popup {
+    top: -36px;
+    right: 0;
+  }
+}

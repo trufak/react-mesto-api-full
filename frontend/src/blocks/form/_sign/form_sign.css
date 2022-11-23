@@ -1,0 +1,9 @@
+.form_sign {
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 425px){
+  .form_sign {
+    margin-top: 40px;
+  }
+}

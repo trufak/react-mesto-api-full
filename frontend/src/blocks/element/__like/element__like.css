@@ -1,0 +1,26 @@
+.element__like {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  background-image: url(../../../images/like.svg);
+  width: 22px;
+  height: 19px;
+
+  cursor: pointer;
+}
+
+.element__like:hover {
+  opacity: 0.5;
+}
+
+.element__like:active {
+  opacity: 1;
+  background-image: url(../../../images/Union.svg);
+}
+
+.element__like:focus {
+  box-shadow: 0px 0px 2px 3px rgb(89, 137, 233);
+}

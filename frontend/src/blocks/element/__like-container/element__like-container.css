@@ -1,0 +1,4 @@
+.element__like-container {
+  grid-area: like;
+  margin: auto 20px auto 18px;
+}

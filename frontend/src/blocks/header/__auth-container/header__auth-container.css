@@ -1,0 +1,16 @@
+.header__auth-container {
+  grid-area: login;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: 1fr;
+  justify-items: end;
+  align-items: center;
+}
+
+@media screen and (max-width: 425px){
+  .header__auth-container {
+    margin-right: 30px;
+  }
+}
+
+

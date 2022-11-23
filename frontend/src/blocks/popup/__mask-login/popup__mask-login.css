@@ -1,0 +1,7 @@
+.popup__mask-login {
+  width: 120px;
+  height: 120px;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto 32px;
+}

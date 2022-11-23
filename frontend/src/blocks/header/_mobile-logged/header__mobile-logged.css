@@ -1,0 +1,5 @@
+@media screen and (max-width: 425px){
+  .header__mobile-logged {
+    grid-template-areas: "logo empty menu-login";
+  }
+}

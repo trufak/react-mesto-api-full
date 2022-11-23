@@ -1,0 +1,14 @@
+.form__error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  display: block;
+  min-height: 30px;
+}
+
+.form__error:empty::before {
+  content:"";
+  display: inline-block;
+}
+

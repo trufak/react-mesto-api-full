@@ -1,0 +1,21 @@
+.element__delete {
+  grid-area: mask;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background: url(../../../images/krishka_delete.svg) top no-repeat,
+              url(../../../images/delete.svg) bottom no-repeat;
+  background-color: transparent;
+  width: 18px;
+  height: 19px;
+  cursor: pointer;
+  margin: 20px 20px 0 0;
+  padding: 0;
+  justify-self: end;
+}
+
+.element__delete:hover {
+  opacity: 0.6;
+}

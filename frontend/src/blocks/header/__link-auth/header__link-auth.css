@@ -1,0 +1,15 @@
+.header__link-auth {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 425px){
+  .header__link-auth {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

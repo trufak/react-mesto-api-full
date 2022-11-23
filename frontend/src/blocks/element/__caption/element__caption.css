@@ -1,0 +1,14 @@
+.element__caption {
+  grid-area: caption;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 25px 0 25.5px 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+

@@ -1,0 +1,12 @@
+.close-button_header {
+  display: none;
+}
+
+@media screen and (max-width: 425px){
+  .close-button_header {
+    display: block;
+    justify-self: end;
+    align-self: center;
+    margin-right: 30px;
+  }
+}

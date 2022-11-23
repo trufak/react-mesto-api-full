@@ -1,0 +1,25 @@
+.close-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  background-image: url(../../images/Close_Icon.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 568px){
+  .close-button {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.close-button:hover {
+  opacity: 0.6;
+}

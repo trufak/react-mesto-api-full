@@ -1,0 +1,30 @@
+.profile__info {
+  grid-area: info;
+  margin: 22px 0 0;
+  max-width: calc(100%*336/(880 - 120 - 150 - 60));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-areas:
+  "title edit-button"
+  "subtitle subtitle";
+  column-gap: 18px;
+  row-gap: 16px;
+  justify-items: start;
+  align-items: end;
+}
+
+@media screen and (max-width: 425px){
+  .profile__info {
+    grid-template-columns: 18px minmax(0, 1fr) 18px;
+    grid-template-areas:
+    "def1 title edit-button"
+    "def2 subtitle def3";
+    max-width: 282px;
+    margin-top: 26px;
+    column-gap: 10px;
+    row-gap: 14px;
+    justify-items: center;
+    text-align: center;
+  }
+}
