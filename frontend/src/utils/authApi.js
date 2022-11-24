@@ -50,7 +50,7 @@ class Api {
 
 //Создание объекта Api
 const apiAuth = new Api({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "https://api.mesto.trufakin.nomoredomains.club",
 });
 
 export default apiAuth;

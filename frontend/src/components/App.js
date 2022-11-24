@@ -51,6 +51,11 @@ function App() {
   //Запрос данных о пользователе и карточек
   useEffect(() => {
     if (loggedIn) {
+      const token = localStorage.getItem('tokenMesto');
+      api.headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      }
       Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userInfo, initialCards]) => {
         setCurrentUser({...currentUser, ...userInfo});

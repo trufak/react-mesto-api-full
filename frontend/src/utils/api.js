@@ -75,11 +75,7 @@ class Api {
 
 //Создание объекта Api
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-48",
-  headers: {
-    authorization: "b1d16abd-3d2e-46d4-afc7-dccf7e8c93c2",
-    "Content-Type": "application/json",
-  },
+  baseUrl: "https://api.mesto.trufakin.nomoredomains.club",
 });
 
 export default api;
