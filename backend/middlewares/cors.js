@@ -1,4 +1,3 @@
-// Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
   'http://localhost:3000',
   'https://mesto.trufakin.nomoredomains.club',
@@ -8,7 +7,8 @@ const allowedCors = [
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 module.exports = (req, res, next) => {
-  const { origin, method } = req.headers;
+  const { origin } = req.headers;
+  const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
 
   if (allowedCors.includes(origin)) {
