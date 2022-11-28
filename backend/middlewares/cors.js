@@ -1,5 +1,4 @@
 const allowedCors = [
-  'http://localhost:3000',
   'https://mesto.trufakin.nomoredomains.club',
   'http://mesto.trufakin.nomoredomains.club',
 ];
