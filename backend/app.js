@@ -20,8 +20,10 @@ const app = express();
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-app.use(bodyParser.json());
 app.use(cors);
+
+app.use(bodyParser.json());
+
 /* логирование запросов */
 app.use(requestLogger);
 /* авторизация */
