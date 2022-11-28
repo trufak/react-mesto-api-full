@@ -1,12 +1,11 @@
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
   }
   //запрос
-  _fetch(childUrl, method = "GET", body = null) {
+  _fetch(childUrl, method = "GET", headers = null, body = null) {
     return fetch(this._baseUrl + childUrl, {
-      headers: this._headers,
+      headers: headers,
       method: method,
       body: body,
     }).then((res) => {
@@ -14,7 +13,6 @@ class Api {
       return Promise.reject(`Ошибка: ${res.status}`);
     });
   }
-
   //Получение данных о пользователе
   getUserInfo() {
     return this._fetch("/users/me");
@@ -69,6 +67,39 @@ class Api {
       "/users/me/avatar",
       "PATCH",
       JSON.stringify({ avatar: link })
+    );
+  }
+
+  signup(email, password) {
+    return this._fetch(
+      "/signup",
+      "POST",
+      { "Content-Type": "application/json" },
+      JSON.stringify({
+        password: password,
+        email: email,
+      })
+    );
+  }
+
+  signin(email, password) {
+    return this._fetch(
+      "/signin",
+      "POST",
+      { "Content-Type": "application/json" },
+      JSON.stringify({
+        password: password,
+        email: email,
+      })
+    );
+  }
+
+  getUser(token) {
+    return this._fetch(
+      "/users/me",
+      "GET",
+      { "Content-Type": "application/json",
+      "Authorization" : `Bearer ${token}` }
     );
   }
 }

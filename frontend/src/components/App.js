@@ -13,7 +13,6 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import Register from "./Register";
 import Login from './Login';
 import ProtectedRoute from "./ProtectedRoute";
-import apiAuth from "../utils/authApi";
 import InfoTooltip from "./InfoTooltip";
 
 function App() {
@@ -39,7 +38,7 @@ function App() {
   useEffect(()=>{
     const token = localStorage.getItem('tokenMesto');
     if (token) {
-      apiAuth.getUser(token)
+      api.getUser(token)
       .then (data=>{
         setLoggedIn(true);
         setCurrentUser({...currentUser, email: data.data.email});
@@ -177,7 +176,7 @@ function App() {
 
   //регистрация пользователя
   const handleRegister = (email, password) => {
-    return apiAuth.signup(email, password)
+    return api.signup(email, password)
     .then(res=>{
       setStatusInfoTooltip(true);
       setIsInfoTooltipOpen(true);
@@ -191,7 +190,7 @@ function App() {
   };
   //авторизация пользователя
   const handleLogin = (email, password) => {
-    return apiAuth.signin(email, password)
+    return api.signin(email, password)
     .then(data=>{
       if (data.token) {
         localStorage.setItem('tokenMesto', data.token);
