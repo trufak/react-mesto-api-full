@@ -38,7 +38,11 @@ function App() {
   useEffect(()=>{
     const token = localStorage.getItem('tokenMesto');
     if (token) {
-      api.getUser(token)
+      api.headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      }
+      api.getUser()
       .then (data=>{
         setLoggedIn(true);
         setCurrentUser({...currentUser, email: data.data.email});
@@ -57,7 +61,7 @@ function App() {
       }
       Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userInfo, initialCards]) => {
-        setCurrentUser({...currentUser, ...userInfo});
+        setCurrentUser({...currentUser, ...userInfo.data});
         setCards(initialCards);
       })
       .catch((err) => console.log(err));

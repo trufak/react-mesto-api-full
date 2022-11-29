@@ -3,7 +3,7 @@ class Api {
     this._baseUrl = options.baseUrl;
   }
   //запрос
-  _fetch(childUrl, method = "GET", headers = null, body = null) {
+  _fetch(childUrl, method = "GET", headers = this.headers, body = null) {
     return fetch(this._baseUrl + childUrl, {
       headers: headers,
       method: method,
@@ -95,12 +95,7 @@ class Api {
   }
 
   getUser(token) {
-    return this._fetch(
-      "/users/me",
-      "GET",
-      { "Content-Type": "application/json",
-      "Authorization" : `Bearer ${token}` }
-    );
+    return this._fetch("/users/me");
   }
 }
 
