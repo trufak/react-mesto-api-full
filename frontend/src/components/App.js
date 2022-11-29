@@ -91,7 +91,7 @@ function App() {
     api
       .patchUserInfo(userData.name, userData.about)
       .then((userInfo) => {
-        setCurrentUser({...currentUser, ...userInfo});
+        setCurrentUser({...currentUser, ...userInfo.data});
         closeAllPopups();
       })
       .catch((err) => console.log(err));
@@ -101,7 +101,7 @@ function App() {
     api
       .changeAvatar(link)
       .then((userInfo) => {
-        setCurrentUser({...currentUser, ...userInfo});
+        setCurrentUser({...currentUser, ...userInfo.data});
         closeAllPopups();
       })
       .catch((err) => console.log(err));
