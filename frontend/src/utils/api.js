@@ -22,6 +22,7 @@ class Api {
     return this._fetch(
       "/users/me",
       "PATCH",
+      undefined,
       JSON.stringify({
         name: nameUser,
         about: aboutUser,
@@ -37,6 +38,7 @@ class Api {
     return this._fetch(
       "/cards",
       "POST",
+      undefined,
       JSON.stringify({
         name: nameCard,
         link: linkCard,
@@ -66,6 +68,7 @@ class Api {
     return this._fetch(
       "/users/me/avatar",
       "PATCH",
+      undefined,
       JSON.stringify({ avatar: link })
     );
   }
