@@ -41,7 +41,7 @@ function Main({
       </section>
       <section>
         <ul className="elements">
-          {cards && cards.map((card) => {
+          {cards.map((card) => {
             return (
               <Card
                 key={card._id}
