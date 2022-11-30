@@ -8,7 +8,7 @@ const errorMessages = require('../utils/errorMessages');
 const getCards = (req, res, next) => {
   Card.find({})
     .then((cards) => res.send({ data: cards }))
-    .catch((err) => next(new ServerError(err.message)));
+    .catch(() => next(new ServerError(errorMessages.serverError)));
 };
 
 const createCard = (req, res, next) => {
@@ -18,7 +18,7 @@ const createCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError(errorMessages.cardBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -28,15 +28,16 @@ const deleteCard = (req, res, next) => {
       if (document) {
         const card = document.toObject();
         if (card.owner.toString() === req.user._id) {
-          document.remove();
-          res.send({ data: card });
+          document.remove()
+            .then(() => res.send({ data: card }))
+            .catch(next);
         } else next(new ForbiddenError(errorMessages.cardDeleteNotOwner));
       } else next(new NotFoundError(errorMessages.cardNotFound));
     })
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError(errorMessages.cardBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -53,7 +54,7 @@ const addlikeCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError(errorMessages.cardBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -70,7 +71,7 @@ const deletelikeCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError(errorMessages.cardBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 

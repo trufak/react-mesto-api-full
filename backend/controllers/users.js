@@ -12,7 +12,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 const getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.send({ data: users }))
-    .catch((err) => next(new ServerError(err.message)));
+    .catch(() => next(new ServerError(errorMessages.serverError)));
 };
 
 const getUser = (req, res, next) => {
@@ -24,7 +24,7 @@ const getUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError(errorMessages.userBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -34,10 +34,8 @@ const getCurrentUser = (req, res, next) => {
       if (user) res.send({ data: user });
       else next(new NotFoundError(errorMessages.userNotFound));
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError(errorMessages.userBadRequest));
-      } else next(new ServerError(err.message));
+    .catch(() => {
+      next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -51,15 +49,11 @@ const login = (req, res, next) => {
         { expiresIn: '7d' },
       );
       res
-        .cookie('jwt', token, {
-          maxAge: 3600 * 24 * 7,
-          httpOnly: true,
-        })
         .send({ token });
     })
     .catch((err) => {
       if (err.name === 'UnauthorizedError') next(err);
-      else next(new ServerError(err.message));
+      else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -89,7 +83,7 @@ const createUser = (req, res, next) => {
         next(new BadRequestError(errorMessages.userBadRequest));
       } else if (err.code === 11000) {
         next(new ConflictError(errorMessages.userConflict));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -107,7 +101,7 @@ const updateUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError' || err.name === 'ValidationError') {
         next(new BadRequestError(errorMessages.userBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 
@@ -125,7 +119,7 @@ const updateAvatar = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError' || err.name === 'ValidationError') {
         next(new BadRequestError(errorMessages.userBadRequest));
-      } else next(new ServerError(err.message));
+      } else next(new ServerError(errorMessages.serverError));
     });
 };
 

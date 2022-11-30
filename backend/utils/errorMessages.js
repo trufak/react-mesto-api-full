@@ -8,4 +8,5 @@ module.exports = {
   cardDeleteNotOwner: 'Карточка может быть удалена только создателем',
   incorrectRoute: 'Страница не найдена',
   userConflict: 'пользователь с таким email уже существует',
+  serverError: 'ошибка на сервере',
 };
