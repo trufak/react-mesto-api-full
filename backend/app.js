@@ -26,6 +26,12 @@ app.use(bodyParser.json());
 
 /* логирование запросов */
 app.use(requestLogger);
+/* краш-тест */
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 /* авторизация */
 app.post('/signin', userLoginValidator, login);
 /* регистрация */
