@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors: errorsCelebrate } = require('celebrate');
-const helmet = require('helmet');
 
 const errors = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -16,8 +15,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
-/* подключение helmet */
-app.use(helmet());
+
 /* ограничение количества запросов */
 app.use(limiter);
 /* выставление заголовков cors */
